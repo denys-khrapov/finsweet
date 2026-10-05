@@ -1,0 +1,25 @@
+# OS / editors
+.DS_Store
+.idea/
+.vscode/
+
+# Dependencies
+node_modules/
+vendor/
+
+# Build output
+build/
+dist/
+
+# Local WordPress environment
+.wp-env.override.json
+wp-content/
+
+# Commercial plugins (installed manually, not redistributable)
+advanced-custom-fields-pro/
+*.zip
+
+# Env / secrets
+.env
+.env.*
+!.env.example
