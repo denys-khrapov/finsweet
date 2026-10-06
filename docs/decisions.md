@@ -21,6 +21,13 @@
 - Core default font size and spacing presets are removed with the `wp_theme_json_data_default` filter: core prints their CSS variables in rem even when `theme.json` disables them. Core block CSS (e.g. `alignleft` margins) still has a few em values — not ours to change.
 - Content width 768 px (articles, forms), wide width 1280 px, side padding 80 px on desktop down to 16 px on mobile.
 
+## Header and footer
+
+- **Logo** comes from the media library and is set in Customize → Site Identity (`custom-logo` support), one logo for the header and the footer. Without a logo the site title is shown as text. Administrators may upload SVG (`upload_mimes` filter in `inc/logo.php`); the files are not sanitized, so only trusted SVGs should be uploaded.
+- **Subscribe button** in the header is an anchor to the newsletter block in the footer (`#newsletter`).
+- **Mobile navigation:** below 1024 px the menu becomes a burger with a full-width panel under the header (`aria-expanded`, Esc closes and returns focus, page scroll locked while open). Without JS the menu stays visible. Footer and newsletter block stack in one column below 1024 px.
+- **Site settings** (contacts, social links, newsletter title) live on the SCF options page "Finsweet"; field group in `theme/acf-json/`. An empty social link hides its icon. Social icons are SVG files in `theme/assets/images/`, painted with CSS masks.
+
 ## Content model
 
 - **Authors** are a custom post type, not WP users.
@@ -30,4 +37,5 @@
 
 ## Known follow-ups
 
-- None yet.
+- Newsletter form in the footer is markup only; the handler comes with the forms step.
+- `.button` component is minimal (header and footer needs); shared components step extends it. Hover colour of the light header button (`light-grey`) is not in the mockup.

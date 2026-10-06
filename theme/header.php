@@ -20,22 +20,31 @@ defined( 'ABSPATH' ) || exit;
 
 <header class="site-header">
 	<div class="container site-header__inner">
-		<a class="site-header__logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-			<?php bloginfo( 'name' ); ?>
-		</a>
+		<div class="site-header__logo">
+			<?php finsweet_the_logo(); ?>
+		</div>
 
-		<?php
-		wp_nav_menu(
-			array(
-				'theme_location'  => 'primary',
-				'container'       => 'nav',
-				'container_class' => 'site-header__nav',
-				'menu_class'      => 'site-header__menu',
-				'depth'           => 1,
-				'fallback_cb'     => false,
-			)
-		);
-		?>
+		<button class="site-header__toggle" type="button" aria-expanded="false" aria-controls="site-navigation">
+			<span class="screen-reader-text"><?php esc_html_e( 'Menu', 'finsweet' ); ?></span>
+			<span class="site-header__burger" aria-hidden="true"></span>
+		</button>
+
+		<div class="site-header__panel" id="site-navigation">
+			<?php
+			wp_nav_menu(
+				array(
+					'theme_location'       => 'primary',
+					'container'            => 'nav',
+					'container_class'      => 'site-header__nav',
+					'container_aria_label' => __( 'Main menu', 'finsweet' ),
+					'menu_class'           => 'site-header__menu',
+					'depth'                => 1,
+					'fallback_cb'          => false,
+				)
+			);
+			?>
+			<a class="button button--light" href="#newsletter"><?php esc_html_e( 'Subscribe', 'finsweet' ); ?></a>
+		</div>
 	</div>
 </header>
 

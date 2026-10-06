@@ -7,6 +7,9 @@
 
 defined( 'ABSPATH' ) || exit;
 
+require_once get_theme_file_path( 'inc/logo.php' );
+require_once get_theme_file_path( 'inc/options.php' );
+
 /**
  * Registers theme supports and menu locations.
  */
@@ -69,5 +72,16 @@ function finsweet_enqueue_assets() {
 		$asset['version']
 	);
 	wp_style_add_data( 'finsweet-main', 'rtl', 'replace' );
+
+	wp_enqueue_script(
+		'finsweet-main',
+		get_theme_file_uri( 'assets/build/main.js' ),
+		$asset['dependencies'],
+		$asset['version'],
+		array(
+			'in_footer' => true,
+			'strategy'  => 'defer',
+		)
+	);
 }
 add_action( 'wp_enqueue_scripts', 'finsweet_enqueue_assets' );

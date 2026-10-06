@@ -1,0 +1,25 @@
+@use "../abstracts" as *;
+
+.social-links {
+	display: flex;
+	gap: space(30);
+	margin: 0;
+	padding: 0;
+	list-style: none;
+
+	&__link {
+		display: block;
+		width: 16px;
+		height: 16px;
+		color: color("white");
+		background: currentcolor;
+		opacity: 0.7;
+		mask: var(--icon) center / contain no-repeat; // --icon is set inline in social-links.php
+
+		&:hover,
+		&:focus-visible {
+			opacity: 1;
+		}
+
+	}
+}

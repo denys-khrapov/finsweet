@@ -1,29 +1,112 @@
 @use "../abstracts" as *;
 
 .site-header {
+	position: relative;
+	z-index: 10;
 	color: color("white");
 	background: color("black");
 
 	&__inner {
 		display: flex;
-		flex-wrap: wrap;
 		gap: space(30);
 		align-items: center;
 		justify-content: space-between;
-		padding-block: space(30);
+		min-height: 64px;
+
+		@include up(lg) {
+			min-height: 80px;
+		}
 	}
 
 	&__logo {
-		font-family: $font-heading;
-		font-size: font-size(heading-4);
-		font-weight: 700;
+
+		.custom-logo-link {
+			display: block;
+			line-height: 0;
+		}
+
+		.custom-logo {
+			display: block;
+			width: 140px;
+			height: auto;
+		}
+
+		.custom-logo-link--text {
+			font-family: $font-heading;
+			font-size: font-size("heading-4");
+			font-weight: 700;
+			line-height: 1.333;
+			color: inherit;
+			text-decoration: none;
+		}
+	}
+
+	&__toggle {
+		display: none;
+		width: 44px;
+		height: 44px;
+		padding: 0;
 		color: inherit;
-		text-decoration: none;
+		cursor: pointer;
+		background: none;
+		border: 0;
+
+		&:focus-visible {
+			outline: 2px solid color("yellow");
+			outline-offset: 2px;
+		}
+	}
+
+	&__burger,
+	&__burger::before,
+	&__burger::after {
+		display: block;
+		width: 24px;
+		height: 2px;
+		background: currentcolor;
+		transition: transform 0.2s, background-color 0.2s;
+	}
+
+	&__burger {
+		position: relative;
+		margin-inline: auto;
+
+		&::before,
+		&::after {
+			position: absolute;
+			left: 0;
+			content: "";
+		}
+
+		&::before {
+			top: -8px;
+		}
+
+		&::after {
+			top: 8px;
+		}
+	}
+
+	&__toggle[aria-expanded="true"] &__burger {
+		background: transparent;
+
+		&::before {
+			transform: translateY(8px) rotate(45deg);
+		}
+
+		&::after {
+			transform: translateY(-8px) rotate(-45deg);
+		}
+	}
+
+	&__panel {
+		display: flex;
+		gap: space(40);
+		align-items: center;
 	}
 
 	&__menu {
 		display: flex;
-		flex-wrap: wrap;
 		gap: space(30);
 		margin: 0;
 		padding: 0;
@@ -32,6 +115,57 @@
 		a {
 			color: inherit;
 			text-decoration: none;
+
+			&:hover {
+				text-decoration: underline;
+			}
+
+			&:focus-visible {
+				outline: 2px solid color("yellow");
+				outline-offset: 4px;
+			}
 		}
+	}
+
+	@include down(lg) {
+
+		&__toggle {
+			display: block;
+		}
+
+		&__panel {
+			flex-direction: column;
+			align-items: stretch;
+			padding: space(30) 0 space(40);
+			background: color("black");
+		}
+
+		&__menu {
+			flex-direction: column;
+			gap: space(20);
+		}
+
+		// Without JS the menu stays visible instead of unreachable.
+		&.is-ready &__panel {
+			position: absolute;
+			top: 100%;
+			right: 0;
+			left: 0;
+			padding-inline: $container-padding;
+			visibility: hidden;
+			opacity: 0;
+			transition: opacity 0.2s, visibility 0.2s;
+		}
+
+		&.is-open &__panel {
+			visibility: visible;
+			opacity: 1;
+		}
+	}
+}
+
+.nav-open {
+	@include down(lg) {
+		overflow: hidden;
 	}
 }
