@@ -1,0 +1,25 @@
+@use "../../../src/scss/abstracts" as *;
+
+.join-team {
+
+	&__inner {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		max-width: 414px;
+		margin-inline: auto;
+		text-align: center;
+	}
+
+	&__title {
+		margin: 0 0 space(20);
+	}
+
+	&__text {
+		margin: 0 0 space(40);
+	}
+
+	&__button {
+		margin-top: 0;
+	}
+}

@@ -15,7 +15,7 @@
     "start": "wp-scripts start",
     "build": "wp-scripts build",
     "lint:php": "composer lint",
-    "lint:css": "wp-scripts lint-style \"src/**/*.scss\"",
+    "lint:css": "wp-scripts lint-style \"src/**/*.scss\" \"theme/blocks/**/*.scss\"",
     "lint:js": "wp-scripts lint-js src webpack.config.js",
     "lint": "npm run lint:css && npm run lint:js && npm run lint:php"
   },

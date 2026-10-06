@@ -1,0 +1,19 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "acf/join-our-team",
+	"title": "Join our team",
+	"description": "Centered call to action with a heading, a short text and a button.",
+	"category": "finsweet",
+	"icon": "groups",
+	"keywords": [ "cta", "call to action", "join" ],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "render.php"
+	},
+	"supports": {
+		"align": false,
+		"anchor": true
+	},
+	"style": "finsweet-block-join-our-team"
+}
