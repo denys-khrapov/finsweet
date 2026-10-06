@@ -1,0 +1,46 @@
+{
+	"key": "group_finsweet_post",
+	"title": "Post",
+	"fields": [
+		{
+			"key": "field_finsweet_post_author",
+			"label": "Author",
+			"name": "author",
+			"aria-label": "",
+			"type": "relationship",
+			"instructions": "Author shown on the post and its card.",
+			"required": 0,
+			"post_type": [
+				"blog_author"
+			],
+			"post_status": [
+				"publish"
+			],
+			"filters": [
+				"search"
+			],
+			"min": 0,
+			"max": 1,
+			"return_format": "id"
+		}
+	],
+	"position": "side",
+	"location": [
+		[
+			{
+				"param": "post_type",
+				"operator": "==",
+				"value": "post"
+			}
+		]
+	],
+	"menu_order": 0,
+	"style": "default",
+	"label_placement": "top",
+	"instruction_placement": "label",
+	"hide_on_screen": "",
+	"active": true,
+	"description": "",
+	"show_in_rest": 0,
+	"modified": 1791300000
+}
