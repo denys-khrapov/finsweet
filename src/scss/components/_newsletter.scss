@@ -1,0 +1,62 @@
+@use "../abstracts" as *;
+
+.newsletter {
+	display: grid;
+	gap: space(40);
+	align-items: center;
+	padding: space(40) space(30);
+	background: rgb(255 255 255 / 5%);
+
+	@include up(md) {
+		padding: space(50);
+	}
+
+	@include up(lg) {
+		grid-template-columns: 1fr auto;
+		gap: space(50);
+		min-height: 256px;
+		padding-block: 0;
+		padding-inline: 64px 80px;
+	}
+
+	&__title {
+		max-width: 562px;
+		margin: 0;
+		color: color("white");
+	}
+
+	&__form {
+		display: flex;
+		flex-direction: column;
+		gap: space(30);
+
+		@include up(md) {
+			flex-direction: row;
+		}
+	}
+
+	&__input {
+		width: 100%;
+		height: 56px;
+		padding-inline: space(30);
+		font: inherit;
+		color: color("white");
+		background: transparent;
+		border: 1px solid color("dark-grey");
+		border-radius: 0;
+
+		@include up(md) {
+			width: 323px;
+		}
+
+		&::placeholder {
+			color: color("medium-grey");
+			opacity: 1;
+		}
+
+		&:focus-visible {
+			outline: 2px solid color("yellow");
+			outline-offset: 2px;
+		}
+	}
+}
