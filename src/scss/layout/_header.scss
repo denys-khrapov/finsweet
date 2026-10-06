@@ -1,0 +1,37 @@
+@use "../abstracts" as *;
+
+.site-header {
+	color: color("white");
+	background: color("black");
+
+	&__inner {
+		display: flex;
+		flex-wrap: wrap;
+		gap: space(30);
+		align-items: center;
+		justify-content: space-between;
+		padding-block: space(30);
+	}
+
+	&__logo {
+		font-family: $font-heading;
+		font-size: font-size(heading-4);
+		font-weight: 700;
+		color: inherit;
+		text-decoration: none;
+	}
+
+	&__menu {
+		display: flex;
+		flex-wrap: wrap;
+		gap: space(30);
+		margin: 0;
+		padding: 0;
+		list-style: none;
+
+		a {
+			color: inherit;
+			text-decoration: none;
+		}
+	}
+}
