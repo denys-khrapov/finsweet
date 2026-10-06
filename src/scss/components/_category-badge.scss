@@ -26,4 +26,15 @@
 		height: 16px;
 		object-fit: contain;
 	}
+
+	&--large {
+		gap: space(20);
+		font-size: font-size("heading-5");
+		line-height: 32px;
+
+		.category-badge__icon {
+			width: 24px;
+			height: 24px;
+		}
+	}
 }

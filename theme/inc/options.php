@@ -44,3 +44,17 @@ function finsweet_option( $name ) {
 
 	return is_string( $value ) ? $value : '';
 }
+
+/**
+ * Returns a link field from the Finsweet settings options page.
+ *
+ * @param string $name Field name.
+ * @return array|null Array with url, title and target, or null when the link is empty or Secure Custom Fields is inactive.
+ */
+function finsweet_option_link( $name ) {
+	if ( ! function_exists( 'get_field' ) ) {
+		return null;
+	}
+
+	return finsweet_format_link( get_field( $name, 'option' ) );
+}

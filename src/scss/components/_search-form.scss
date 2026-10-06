@@ -1,0 +1,81 @@
+@use "../abstracts" as *;
+
+.search-form {
+	display: flex;
+	flex-direction: column;
+	gap: space(20);
+	width: 100%;
+	max-width: 560px;
+
+	@include up(md) {
+		flex-direction: row;
+	}
+
+	label {
+		flex: 1;
+		min-width: 0;
+	}
+
+	.search-field {
+		width: 100%;
+		height: 56px;
+		padding-inline: space(30);
+		font: inherit;
+		color: color("black");
+		background: color("white");
+		border: 1px solid $color-border;
+		border-radius: 0;
+
+		&::placeholder {
+			color: color("grey");
+			opacity: 1;
+		}
+
+		&:focus-visible {
+			outline: 2px solid color("purple");
+			outline-offset: 2px;
+		}
+	}
+
+	.search-submit {
+		height: 56px;
+		padding-block: 0;
+	}
+}
+
+.search-empty {
+	display: grid;
+	gap: space(30);
+	justify-items: start;
+
+	&__text {
+		margin: 0;
+	}
+}
+
+.not-found {
+
+	&__inner {
+		display: grid;
+		gap: space(30);
+		justify-items: center;
+		max-width: 560px;
+		margin-inline: auto;
+		text-align: center;
+	}
+
+	&__code {
+		margin: 0;
+		font-family: $font-heading;
+		font-size: font-size("display");
+		font-weight: 700;
+		line-height: 1.143;
+		color: color("purple");
+		letter-spacing: -2px;
+	}
+
+	&__title,
+	&__text {
+		margin: 0;
+	}
+}

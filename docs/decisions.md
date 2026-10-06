@@ -56,6 +56,16 @@
 - **Layout helpers:** `.post-list`, `.post-grid`, `.category-grid`, `.author-grid` set the grids, collapsing to fewer columns on smaller screens.
 - **`page.php`** is minimal (prints the content); page templates for the other types come with step 6.
 
+## Templates
+
+- **Thin templates:** `single.php`, `home.php`, `search.php`, `404.php` only assemble partials and helpers. `page.php` stays block-only (Home and About are built from blocks).
+- **Privacy Policy** is a selectable page template (`page-privacy.php`, "Template Name: Privacy Policy"): lavender header with the title and "Last Updated on <modified date>", text in the 768 px column.
+- **Featured post** on the blog is the newest sticky post, or the newest post when none is sticky; it is excluded from the "All posts" list (`pre_get_posts`). A dedicated flag is still postponed to the Home blocks step.
+- **What to read next:** three posts of the same category, filled up with the latest posts (`finsweet_get_related_posts()`).
+- **Join our team** is a partial (`template-parts/join-our-team.php`) used by `single.php` and `home.php`; texts and button come from the Finsweet settings page, and the block renders the same partial. The block CSS handle is enqueued by the partial, so templates get the block styles.
+- **Search form** is the theme's own `searchform.php` with the `.button` component. 404 and search have no mockup: simple pages in the site style.
+- **Article typography:** the column is 768 px, h1/h2/h3 get 48 px top margin, list items use the heading font (as in the mockup).
+
 ## Known follow-ups
 
 - Newsletter form in the footer is markup only; the handler comes with the forms step.

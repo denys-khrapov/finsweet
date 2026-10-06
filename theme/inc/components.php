@@ -12,6 +12,8 @@ defined( 'ABSPATH' ) || exit;
  */
 function finsweet_register_image_sizes() {
 	add_image_size( 'finsweet-card', 980, 636, true );
+	add_image_size( 'finsweet-cover', 1920, 873, true );
+	add_image_size( 'finsweet-avatar', 96, 96, true );
 }
 add_action( 'after_setup_theme', 'finsweet_register_image_sizes' );
 
@@ -51,6 +53,113 @@ function finsweet_get_primary_category( $post = null ) {
 function finsweet_get_card_excerpt( $post = null, $words = 24 ) {
 	return wp_trim_words( get_the_excerpt( $post ), $words );
 }
+
+/**
+ * Returns the posts shown under an article ("What to read next").
+ *
+ * Posts of the same category come first; the rest is filled with the latest posts.
+ *
+ * @param int|WP_Post|null $post  Post ID or object, defaults to the current post.
+ * @param int              $count Number of posts.
+ * @return WP_Post[]
+ */
+function finsweet_get_related_posts( $post = null, $count = 3 ) {
+	$post = get_post( $post );
+
+	if ( ! $post ) {
+		return array();
+	}
+
+	$posts = array();
+	$base  = array(
+		'post_type'           => 'post',
+		'post_status'         => 'publish',
+		'posts_per_page'      => $count,
+		'ignore_sticky_posts' => true,
+		'no_found_rows'       => true,
+	);
+
+	$category = finsweet_get_primary_category( $post );
+
+	if ( $category ) {
+		$posts = get_posts(
+			array_merge(
+				$base,
+				array(
+					'cat'          => $category->term_id,
+					'post__not_in' => array( $post->ID ),
+				)
+			)
+		);
+	}
+
+	if ( count( $posts ) < $count ) {
+		$exclude   = wp_list_pluck( $posts, 'ID' );
+		$exclude[] = $post->ID;
+
+		$posts = array_merge(
+			$posts,
+			get_posts(
+				array_merge(
+					$base,
+					array(
+						'posts_per_page' => $count - count( $posts ),
+						'post__not_in'   => $exclude,
+					)
+				)
+			)
+		);
+	}
+
+	return $posts;
+}
+
+/**
+ * Returns the featured post of the blog: the newest sticky post, or the newest post.
+ *
+ * @return WP_Post|null
+ */
+function finsweet_get_featured_post() {
+	$sticky = get_option( 'sticky_posts' );
+	$args   = array(
+		'post_type'           => 'post',
+		'post_status'         => 'publish',
+		'posts_per_page'      => 1,
+		'ignore_sticky_posts' => true,
+		'no_found_rows'       => true,
+	);
+
+	if ( ! empty( $sticky ) ) {
+		$posts = get_posts( array_merge( $args, array( 'post__in' => $sticky ) ) );
+
+		if ( ! empty( $posts ) ) {
+			return $posts[0];
+		}
+	}
+
+	$posts = get_posts( $args );
+
+	return ! empty( $posts ) ? $posts[0] : null;
+}
+
+/**
+ * Keeps the featured post out of the posts list on the blog page.
+ *
+ * @param WP_Query $query Query being prepared.
+ */
+function finsweet_exclude_featured_post( $query ) {
+	if ( is_admin() || ! $query->is_main_query() || ! $query->is_home() ) {
+		return;
+	}
+
+	$featured = finsweet_get_featured_post();
+
+	if ( $featured ) {
+		$query->set( 'post__not_in', array( $featured->ID ) );
+		$query->set( 'ignore_sticky_posts', true );
+	}
+}
+add_action( 'pre_get_posts', 'finsweet_exclude_featured_post' );
 
 /**
  * Prints the pagination of a posts query: Prev, page numbers, Next.
