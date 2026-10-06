@@ -1,0 +1,21 @@
+@use "../abstracts" as *;
+
+.post-meta {
+	margin: 0;
+	font-size: font-size("body-2");
+	line-height: 20px;
+	color: color("black");
+
+	&__author {
+		color: color("purple");
+		text-decoration: none;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+
+	&__separator {
+		margin-inline: space(10);
+	}
+}

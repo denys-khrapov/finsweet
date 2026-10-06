@@ -5,7 +5,8 @@
  * @package Finsweet
  *
  * @var array $args {
- *     @type WP_Term|int $term Category term or ID.
+ *     @type WP_Term|int $term  Category term or ID.
+ *     @type bool        $large Larger size, used in the article header.
  * }
  */
 
@@ -19,7 +20,7 @@ if ( ! $finsweet_term || is_wp_error( $finsweet_term ) ) {
 
 $finsweet_icon_id = finsweet_get_category_icon_id( $finsweet_term );
 ?>
-<a class="category-badge" href="<?php echo esc_url( get_term_link( $finsweet_term ) ); ?>">
+<a class="category-badge<?php echo ! empty( $args['large'] ) ? ' category-badge--large' : ''; ?>" href="<?php echo esc_url( get_term_link( $finsweet_term ) ); ?>">
 	<?php if ( $finsweet_icon_id ) : ?>
 		<?php
 		echo wp_get_attachment_image(

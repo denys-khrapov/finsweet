@@ -1,0 +1,20 @@
+@use "../abstracts" as *;
+
+.page-header {
+	padding-block: space(50);
+	text-align: center;
+	background: color("lavender");
+
+	&__title {
+		margin: 0 0 space(10);
+		font-size: font-size("heading-1");
+		line-height: 1.333;
+		letter-spacing: -2px;
+	}
+
+	&__meta {
+		margin: 0;
+		line-height: 24px;
+		color: color("medium-grey");
+	}
+}

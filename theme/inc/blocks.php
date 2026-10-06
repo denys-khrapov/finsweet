@@ -98,8 +98,16 @@ function finsweet_block_link( $name ) {
 		return null;
 	}
 
-	$value = get_field( $name );
+	return finsweet_format_link( get_field( $name ) );
+}
 
+/**
+ * Normalizes the value of a link field.
+ *
+ * @param mixed $value Link field value (array return format).
+ * @return array|null Array with url, title and target, or null when the link is empty.
+ */
+function finsweet_format_link( $value ) {
 	if ( ! is_array( $value ) || empty( $value['url'] ) ) {
 		return null;
 	}

@@ -61,7 +61,7 @@ Implemented in `theme/theme.json`.
 | Author | `533:3026` | `single-blog_author.php` (CPT) | photo, name, bio, social links, "My posts" |
 | About Us | `533:2806` | page built from blocks | hero, stats over image, mission/vision, two image+text sections, authors grid, Join our team |
 | Contact | `533:3083` | page built from blocks + contact form block | heading, working hours / contacts card, form: name, email, query select, message |
-| Privacy Policy | `533:3065` | `page.php` | header with "last updated" date, text content |
+| Privacy Policy | `533:3065` | `page-privacy.php` (→ decisions.md) | header with "last updated" date, text content |
 
 ## Content model (→ decisions.md)
 
