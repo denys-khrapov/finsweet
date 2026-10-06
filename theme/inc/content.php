@@ -50,3 +50,46 @@ function finsweet_get_category_icon_id( $term ) {
 
 	return absint( get_field( 'icon', $term, false ) );
 }
+
+/**
+ * Returns the job title of an author.
+ *
+ * @param int|WP_Post $author Post of the "blog_author" type or its ID.
+ * @return string Job title, empty when not set or Secure Custom Fields is inactive.
+ */
+function finsweet_get_author_job_title( $author ) {
+	$author = get_post( $author );
+
+	if ( ! $author || ! function_exists( 'get_field' ) ) {
+		return '';
+	}
+
+	$value = get_field( 'job_title', $author->ID );
+
+	return is_string( $value ) ? $value : '';
+}
+
+/**
+ * Returns the filled-in social links of an author.
+ *
+ * @param int|WP_Post $author Post of the "blog_author" type or its ID.
+ * @return string[] Network slug => URL, only for the networks that have a link.
+ */
+function finsweet_get_author_links( $author ) {
+	$author = get_post( $author );
+	$links  = array();
+
+	if ( ! $author || ! function_exists( 'get_field' ) ) {
+		return $links;
+	}
+
+	foreach ( array( 'facebook', 'twitter', 'instagram', 'linkedin' ) as $network ) {
+		$url = get_field( $network . '_url', $author->ID );
+
+		if ( is_string( $url ) && '' !== $url ) {
+			$links[ $network ] = $url;
+		}
+	}
+
+	return $links;
+}
