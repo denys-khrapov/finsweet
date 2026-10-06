@@ -1,0 +1,22 @@
+@use "../abstracts" as *;
+
+.screen-reader-text {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip-path: inset(50%);
+	white-space: nowrap;
+}
+
+.skip-link:focus {
+	top: space(20);
+	left: space(20);
+	z-index: 100;
+	width: auto;
+	height: auto;
+	padding: space(20);
+	clip-path: none;
+	color: color("black");
+	background: color("yellow");
+}

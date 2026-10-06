@@ -1,0 +1,21 @@
+@use "sass:map";
+
+// Mobile-first breakpoints. The mockup is desktop only (1440px).
+$breakpoints: (
+	sm: 576px,
+	md: 768px,
+	lg: 1024px,
+	xl: 1280px,
+);
+
+@mixin up($name) {
+	@media (min-width: map.get($breakpoints, $name)) {
+		@content;
+	}
+}
+
+@mixin down($name) {
+	@media (max-width: map.get($breakpoints, $name) - 0.02px) {
+		@content;
+	}
+}

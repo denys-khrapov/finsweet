@@ -1,0 +1,18 @@
+// Short aliases for the CSS custom properties generated from theme.json.
+
+@function color($slug) {
+	@return var(--wp--preset--color--#{$slug});
+}
+
+@function font-size($slug) {
+	@return var(--wp--preset--font-size--#{$slug});
+}
+
+@function space($slug) {
+	@return var(--wp--preset--spacing--#{$slug});
+}
+
+$font-heading: var(--wp--preset--font-family--sen);
+$font-body: var(--wp--preset--font-family--inter);
+$container-padding: var(--wp--custom--container--padding);
+$wide-size: var(--wp--style--global--wide-size);
