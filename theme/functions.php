@@ -12,6 +12,7 @@ require_once get_theme_file_path( 'inc/options.php' );
 require_once get_theme_file_path( 'inc/post-types.php' );
 require_once get_theme_file_path( 'inc/content.php' );
 require_once get_theme_file_path( 'inc/blocks.php' );
+require_once get_theme_file_path( 'inc/components.php' );
 
 /**
  * Registers theme supports and menu locations.

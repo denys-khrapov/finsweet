@@ -47,7 +47,16 @@
 - **Block field helpers:** `finsweet_block_field()` and `finsweet_block_link()` read the fields of the block being rendered; render files do not call `get_field()` directly.
 - **First block:** "Join our team" (Figma `533:2155`): title, text, link button. Page templates come with step 6, until then page content is not printed by `index.php`.
 
+## Shared components
+
+- **Partials, not blocks:** cards, category badge, section heading, stripe and pagination are PHP partials in `theme/template-parts/` that take data through `get_template_part()` arguments. Templates and blocks (steps 6-8) reuse them. Styles live in `main.css`, one SCSS file per component.
+- **Post cards:** the horizontal card (category, title, excerpt) is used in lists, the vertical card (author, date, title, excerpt) in "What to read next". Both use the `finsweet-card` image size (980x636, cropped). The category on the card is the first non-default category of the post.
+- **Pagination** prints `‹ Prev 1 2 … 5 Next ›` (`finsweet_pagination()`, built on `paginate_links()`); the mockup has Prev / Next only, the numbers are ours. Disabled Prev / Next stay visible.
+- **Category card** turns yellow on hover, focus and with the `is-active` class (current category).
+- **Layout helpers:** `.post-list`, `.post-grid`, `.category-grid`, `.author-grid` set the grids, collapsing to fewer columns on smaller screens.
+- **`page.php`** is minimal (prints the content); page templates for the other types come with step 6.
+
 ## Known follow-ups
 
 - Newsletter form in the footer is markup only; the handler comes with the forms step.
-- `.button` component is minimal (header and footer needs); shared components step extends it. Hover colour of the light header button (`light-grey`) is not in the mockup.
+- `.button` component is minimal (header and footer needs). Hover colour of the light header button (`light-grey`) is not in the mockup.

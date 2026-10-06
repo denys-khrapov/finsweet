@@ -10,6 +10,7 @@
 | #3 | Header and footer: logo from the Customizer, menus, mobile navigation, newsletter block, contacts and social links from the "Finsweet" options page |
 | #4 | Content model: `blog_author` post type, category icon, post → author relationship, field groups in `acf-json` |
 | #5 | Block infrastructure: auto-registered field-based blocks in `theme/blocks/`, "Finsweet" category, per-block styles, editor preview, first block "Join our team" |
+| #6 | Shared components: horizontal and vertical post cards, category card and badge, author card, section heading, stripe, pagination, minimal `page.php` |
 
 ## Plan
 
@@ -21,8 +22,8 @@ Every step is a separate PR. ✅ done, ⏭ next.
 2. ✅ **Header and footer** — logo from the Customizer, menus, mobile navigation, newsletter block, contacts and social links from an options page (#3)
 3. ✅ **Content model** — `blog_author` post type, category icons, post → author relationship, field groups in `acf-json` (#4)
 4. ✅ **Block infrastructure** — field-based blocks with `block.json`, auto-registration, per-block styles (#5)
-5. ⏭ **Shared components** — post, category and author cards, buttons, section headings, pagination
-6. **Templates** — single post, blog, category, author, page, 404, search
+5. ✅ **Shared components** — post, category and author cards, section headings, stripe, pagination (#6)
+6. ⏭ **Templates** — single post, blog, category, author, page, 404, search
 7. **Home page blocks** — hero, featured posts, categories, authors, logos, testimonials slider, call to action
 8. **About page blocks** — hero, stats, mission and vision, image + text sections, authors grid
 9. **Contact form and newsletter** — form handler with validation and spam protection, stored submissions, SMTP

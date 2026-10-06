@@ -1,0 +1,80 @@
+@use "../abstracts" as *;
+
+.author-grid {
+	display: grid;
+	gap: space(40);
+
+	@include up(sm) {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	@include up(lg) {
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+	}
+}
+
+.author-card {
+	display: flex;
+	flex-direction: column;
+	gap: space(10);
+	align-items: center;
+	padding: space(40) space(30);
+	text-align: center;
+	background: color("light-grey");
+
+	&:hover,
+	&:focus-within {
+		background: color("light-yellow");
+	}
+
+	&__photo {
+		display: block;
+		width: 96px;
+		height: 96px;
+		margin-bottom: space(10);
+		overflow: hidden;
+		background: color("white");
+		border-radius: 50%;
+
+		img {
+			display: block;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	&__name {
+		margin: 0;
+		font-family: $font-heading;
+		font-size: font-size("heading-4");
+		font-weight: 700;
+		line-height: 1.333;
+		color: color("black");
+
+		a {
+			color: inherit;
+			text-decoration: none;
+
+			&:hover {
+				color: color("purple");
+			}
+
+			&:focus-visible {
+				outline: 2px solid color("purple");
+				outline-offset: 2px;
+			}
+		}
+	}
+
+	&__job {
+		margin: 0;
+		font-size: font-size("body-2");
+		line-height: 20px;
+		color: color("medium-grey");
+	}
+
+	.social-links {
+		margin-top: space(10);
+	}
+}

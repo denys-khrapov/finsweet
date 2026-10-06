@@ -1,0 +1,29 @@
+@use "../abstracts" as *;
+
+.section-heading {
+	display: flex;
+	gap: space(30);
+	align-items: baseline;
+	justify-content: space-between;
+	margin-bottom: space(40);
+
+	&__title {
+		margin: 0;
+		font-family: $font-heading;
+		font-size: font-size("heading-2");
+		font-weight: 700;
+		line-height: 1.333;
+		letter-spacing: -2px;
+		color: color("black");
+	}
+
+	&--divider {
+		padding-bottom: space(40);
+		border-bottom: 1px solid $color-border;
+
+		.section-heading__title {
+			font-size: font-size("heading-1");
+			line-height: 1.333;
+		}
+	}
+}

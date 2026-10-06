@@ -20,6 +20,9 @@
 		&:focus-visible {
 			opacity: 1;
 		}
+	}
 
+	&--dark &__link {
+		color: color("black");
 	}
 }

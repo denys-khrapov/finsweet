@@ -1,0 +1,145 @@
+@use "../abstracts" as *;
+
+.post-list {
+	display: grid;
+	gap: space(50);
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.post-grid {
+	display: grid;
+	gap: space(40);
+
+	@include up(md) {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	@include up(lg) {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+}
+
+.post-card {
+	display: grid;
+	gap: space(30);
+
+	&__image {
+		display: block;
+		overflow: hidden;
+		background: color("light-grey");
+
+		img {
+			display: block;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	&__category {
+		margin: 0 0 20px;
+		font-size: font-size("body-1");
+		font-weight: 600;
+		line-height: 20px;
+		color: color("purple");
+		text-transform: uppercase;
+		letter-spacing: 3px;
+	}
+
+	&__title {
+		margin: 0;
+		font-family: $font-heading;
+		font-weight: 700;
+		color: color("black");
+
+		a {
+			color: inherit;
+			text-decoration: none;
+
+			&:hover {
+				color: color("purple");
+			}
+
+			&:focus-visible {
+				outline: 2px solid color("purple");
+				outline-offset: 2px;
+			}
+		}
+	}
+
+	&__excerpt {
+		margin: 0;
+		color: color("medium-grey");
+	}
+
+	&--horizontal {
+		@include up(lg) {
+			grid-template-columns: minmax(0, 490px) minmax(0, 1fr);
+			gap: space(40);
+			align-items: center;
+		}
+
+		.post-card__image {
+			aspect-ratio: 490 / 318;
+		}
+
+		.post-card__title {
+			margin-bottom: space(20);
+			font-size: font-size("heading-2");
+			line-height: 1.333;
+			letter-spacing: -2px;
+		}
+
+		.post-card__excerpt {
+			font-size: font-size("body-1");
+			line-height: 28px;
+		}
+	}
+
+	&--vertical {
+		align-content: start;
+		gap: space(30);
+
+		.post-card__image {
+			aspect-ratio: 9 / 7;
+		}
+
+		.post-card__body {
+			display: grid;
+			gap: space(20);
+		}
+
+		.post-card__meta {
+			margin: 0;
+			font-size: font-size("body-2");
+			line-height: 20px;
+			color: color("black");
+		}
+
+		.post-card__author {
+			color: color("purple");
+			text-decoration: none;
+
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+
+		.post-card__separator {
+			margin-inline: space(10);
+		}
+
+		.post-card__title {
+			font-size: font-size("heading-3");
+			line-height: 1.429;
+			letter-spacing: -1px;
+		}
+
+		.post-card__excerpt {
+			font-size: font-size("body-2");
+			line-height: 28px;
+		}
+	}
+}

@@ -1,0 +1,6 @@
+@use "../abstracts" as *;
+
+.stripe {
+	height: 12px;
+	background: linear-gradient(to right, transparent 17%, color("yellow") 17% 78%, color("purple") 78%);
+}
