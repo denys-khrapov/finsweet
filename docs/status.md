@@ -5,21 +5,33 @@
 | PR | What |
 |---|---|
 | — | Initial commit: README, .gitignore |
+| #1 | Theme scaffold: classic theme base, `theme.json` design tokens (px only), SCSS build with `@wordpress/scripts`, PHPCS / stylelint / eslint, CI, docs |
 
-## Next
+## Plan
 
-1. Theme scaffold: MAMP setup, classic theme base, SCSS build, `theme.json` tokens, CI, docs ← current
-2. Navbar and Footer (`header.php`, `footer.php`, newsletter form markup)
-3. Content model: `author` CPT, category icon field, post → author relationship
-4. Blog Post template (`single.php`)
-5. Blog page and Category archive
-6. Author page
-7. Home page blocks
-8. About Us blocks
-9. Contact page and form handler, newsletter handler
-10. Privacy Policy, 404, search
-11. Responsive pass, accessibility pass
-12. Deploy to InfinityFree via FTP
+Every step is a separate PR. ✅ done, ⏭ next.
+
+### Development
+
+1. ✅ **Scaffold** — classic theme base, design tokens, SCSS build, linters, CI (#1)
+2. ⏭ **Header and footer** — menus, mobile navigation, newsletter block, contacts and social links from an options page
+3. **Content model** — `author` post type, category icons, post → author relationship, field groups in `acf-json`
+4. **Block infrastructure** — field-based blocks with `block.json`, auto-registration, per-block styles
+5. **Shared components** — post, category and author cards, buttons, section headings, pagination
+6. **Templates** — single post, blog, category, author, page, 404, search
+7. **Home page blocks** — hero, featured posts, categories, authors, logos, testimonials slider, call to action
+8. **About page blocks** — hero, stats, mission and vision, image + text sections, authors grid
+9. **Contact form and newsletter** — form handler with validation and spam protection, stored submissions, SMTP
+10. **Privacy Policy** template
+11. **Final pass** — responsive layout, accessibility, performance, basic SEO
+
+### Deployment
+
+12. **Hosting** — InfinityFree account, PHP 8, MySQL, SSL
+13. **WordPress on the server** — Secure Custom Fields, permalinks
+14. **Automatic deploy** — GitHub Actions builds the assets and uploads `theme/` over FTP on every merge to `main`
+15. **Content** — pages, categories, authors, posts
+16. **Launch** — final check on production, README with the live link and screenshots
 
 ## How to run
 
@@ -43,5 +55,6 @@ npm run lint:php         # PHPCS via MAMP PHP + Composer
 
 ## GitHub
 
-- `main` is protected: PR only, linear history, no force pushes; squash merge only.
-- PRs open as drafts, CI must be green before merge.
+- `main` is protected: PR only, linear history, no force pushes, squash merge only.
+- Required checks: **PHP lint**, **SCSS/JS lint and build** (branch must be up to date with `main`).
+- PRs open as drafts; merge only after approval.
