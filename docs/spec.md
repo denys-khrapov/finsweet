@@ -72,7 +72,7 @@ Implemented in `theme/theme.json`.
 
 ## Reusable blocks / patterns (candidates)
 
-- Join our team (Home, Blog, Blog Post, About)
+- Join our team (Home, Blog, Blog Post, About) — done as a block, Figma `533:2155`
 - Category grid (Home, Blog)
 - Author card / authors grid (Home, About)
 - Horizontal post card (Blog, Category, Author)
