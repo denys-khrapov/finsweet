@@ -58,14 +58,14 @@ Implemented in `theme/theme.json`.
 | Blog | `571:498` | `home.php` (posts page) | featured post, posts list, Prev/Next pagination, category grid, Join our team |
 | Blog Post | `533:2751` | `single.php` | author + date, title, category badge, cover image, content, "What to read next" (3 cards), Join our team |
 | Category | `533:2623` | `category.php` | hero with breadcrumbs, posts list, sidebar: categories + all tags |
-| Author | `533:3026` | `single-author.php` (CPT) | photo, name, bio, social links, "My posts" |
+| Author | `533:3026` | `single-blog_author.php` (CPT) | photo, name, bio, social links, "My posts" |
 | About Us | `533:2806` | page built from blocks | hero, stats over image, mission/vision, two image+text sections, authors grid, Join our team |
 | Contact | `533:3083` | page built from blocks + contact form block | heading, working hours / contacts card, form: name, email, query select, message |
 | Privacy Policy | `533:3065` | `page.php` | header with "last updated" date, text content |
 
 ## Content model (→ decisions.md)
 
-- **Author** — custom post type `author`: photo (featured image), job title, bio, social links. Posts link to an author through an SCF relationship field, not `post_author`.
+- **Author** — custom post type `blog_author` (URL `/authors/<name>/`, → decisions.md): photo (featured image), job title, bio, social links. Posts link to an author through an SCF relationship field, not `post_author`.
 - **Category** — core taxonomy + SCF icon field.
 - **Testimonials, "Featured in" logos, About stats** — SCF blocks with fields.
 - **Contact and newsletter forms** — own handler, `wp_mail`.

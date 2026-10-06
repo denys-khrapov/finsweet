@@ -30,8 +30,11 @@
 
 ## Content model
 
-- **Authors** are a custom post type, not WP users.
-- **Category icons** are an SCF field on the category term.
+- **Authors** are a custom post type, not WP users. The post type key is `blog_author` (`author` is reserved by WordPress); the URL base is `/authors/<name>/`, so it does not clash with the core `/author/<user>/` archives. It has no archive page, only single pages.
+- **Author fields** (SCF group on `blog_author`): job title and four social links. Photo is the featured image, bio is the content.
+- **Post → author** is an SCF relationship field `author` (one `blog_author`, stored as ID), not `post_author`. Helper: `finsweet_get_post_author()`.
+- **Category icons** are an SCF image field `icon` on the category term (stored as attachment ID, SVG allowed). Helper: `finsweet_get_category_icon_id()`.
+- **"Featured" flag** for posts is not added yet; it comes with the Home blocks step if needed.
 - **Testimonials, "Featured in" logos and About stats** are blocks with fields.
 - **Contact and newsletter forms** use our own handler with `wp_mail`, no form plugin.
 
