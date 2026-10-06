@@ -7,7 +7,7 @@
 - **Local environment:** MAMP (Apache, MySQL 8, PHP 8.3), no Docker. WordPress lives in `/Applications/MAMP/htdocs/finsweet`, the repo's `theme/` is symlinked to `wp-content/themes/finsweet`.
 - **PHP lint:** PHPCS with WordPress Coding Standards. `composer.json` and `.phpcs.xml.dist` live in the repo root, so `theme/` contains only theme files and `vendor/` never ends up in the theme. Locally it runs with MAMP's PHP and Composer (`npm run lint:php`), in CI with `setup-php`.
 - **Hosting:** InfinityFree. Deploy via FTP from GitHub Actions after merge to `main` (to be added once there is something to deploy).
-- **Git:** `main` is protected — changes only through PRs, linear history, squash merge only.
+- **Git:** `main` is protected — changes only through PRs, linear history, squash merge only; CI checks are required.
 - **Styles are written in SCSS.** Sources live in `src/` (repo root), `@wordpress/scripts` (webpack, sass, autoprefixer) compiles them to `theme/assets/build/`. No gulp/vite — the WordPress toolchain already covers it. The build folder is not committed: it is built locally with `npm start` / `npm run build` and in CI before deploy.
 - **SCSS helpers** `color()`, `font-size()`, `space()` return the `theme.json` CSS variables, so tokens are defined only once, in `theme.json`. Breakpoint mixins `up()` / `down()` are mobile-first: sm 576, md 768, lg 1024, xl 1280.
 - **Fonts** are self-hosted in `theme/assets/fonts` (Sen 700, Inter 400/500, latin subset, OFL), taken from Fontsource.
@@ -30,4 +30,4 @@
 
 ## Known follow-ups
 
-- Make the CI jobs required checks on `main` once they have run on the first PR.
+- None yet.
