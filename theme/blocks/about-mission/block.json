@@ -1,0 +1,19 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "acf/about-mission",
+	"title": "About and mission",
+	"description": "Two columns on a lavender background: about us with a link and our mission.",
+	"category": "finsweet",
+	"icon": "columns",
+	"keywords": [ "about", "mission", "home" ],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "render.php"
+	},
+	"supports": {
+		"align": false,
+		"anchor": true
+	},
+	"style": "finsweet-block-about-mission"
+}

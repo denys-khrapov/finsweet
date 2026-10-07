@@ -54,7 +54,7 @@ Implemented in `theme/theme.json`.
 
 | Page | Frame | WordPress | Sections |
 |---|---|---|---|
-| Home | `533:2153` | page built from blocks (`page.php`) | hero with a post, featured post + latest posts list, about/mission, category grid, "why we started", authors, "Featured in" logos, testimonials slider, Join our team |
+| Home | `533:2153` | page built from blocks (`page.php`) | hero with a post, featured post + latest posts list, about/mission, category grid, "why we started", authors, "Featured in" logos, testimonials slider, Join our team → decisions.md "Home blocks" |
 | Blog | `571:498` | `home.php` (posts page) | featured post, posts list, Prev/Next pagination, category grid, Join our team |
 | Blog Post | `533:2751` | `single.php` | author + date, title, category badge, cover image, content, "What to read next" (3 cards), Join our team |
 | Category | `533:2623` | `category.php` | hero with breadcrumbs, posts list, sidebar: categories + all tags (→ decisions.md) |
@@ -67,7 +67,7 @@ Implemented in `theme/theme.json`.
 
 - **Author** — custom post type `blog_author` (URL `/authors/<name>/`, → decisions.md): photo (featured image), job title, bio, social links. Posts link to an author through an SCF relationship field, not `post_author`.
 - **Category** — core taxonomy + SCF icon field.
-- **Testimonials, "Featured in" logos, About stats** — SCF blocks with fields.
+- **"Featured in" logos, About stats** — SCF blocks with fields; **testimonials** — `testimonial` post type + slider block.
 - **Contact and newsletter forms** — own handler, `wp_mail`.
 
 ## Reusable blocks / patterns (candidates)

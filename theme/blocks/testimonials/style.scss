@@ -1,0 +1,164 @@
+@use "../../../src/scss/abstracts" as *;
+
+.testimonials {
+	background: color("light-yellow");
+
+	&__inner {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr);
+		gap: space(50);
+
+		@include up(lg) {
+			grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+			gap: 0;
+		}
+	}
+
+	&__intro {
+		@include up(lg) {
+			padding-right: space(50);
+		}
+	}
+
+	&__label {
+		margin: 0 0 space(20);
+		font-size: font-size("body-1");
+		font-weight: 600;
+		line-height: 24px;
+		color: color("black");
+		text-transform: uppercase;
+		letter-spacing: 3px;
+	}
+
+	&__title {
+		margin: 0 0 space(30);
+		font-size: font-size("heading-1");
+		line-height: 1.333;
+		letter-spacing: -2px;
+	}
+
+	&__text {
+		max-width: 400px;
+		margin: 0;
+		line-height: 28px;
+		color: color("black");
+	}
+
+	&__slider-wrap {
+		position: relative;
+
+		@include up(lg) {
+			padding-left: space(50);
+			border-left: 1px solid $color-border;
+		}
+	}
+
+	// Minimal Swiper layout, the rest is set by its script.
+	&__slider {
+		position: relative;
+		overflow: hidden;
+	}
+
+	.swiper-wrapper {
+		display: flex;
+		box-sizing: content-box;
+		width: 100%;
+		height: 100%;
+		transition-property: transform;
+	}
+
+	&__slide {
+		display: flex;
+		flex-direction: column;
+		flex-shrink: 0;
+		gap: space(40);
+		justify-content: space-between;
+		width: 100%;
+		min-height: 320px;
+		padding: 0 0 100px;
+		margin: 0;
+	}
+
+	&__quote {
+		margin: 0;
+		font-family: $font-heading;
+		font-size: font-size("heading-3");
+		font-weight: 700;
+		line-height: 1.3;
+		color: color("black");
+	}
+
+	&__author {
+		display: grid;
+		grid-template-columns: 76px minmax(0, 1fr);
+		column-gap: space(20);
+		align-items: center;
+	}
+
+	&__photo {
+		grid-row: span 2;
+		width: 76px;
+		height: 76px;
+		object-fit: cover;
+		border-radius: 50%;
+	}
+
+	&__name {
+		align-self: end;
+		font-family: $font-heading;
+		font-size: font-size("heading-4");
+		font-weight: 700;
+		line-height: 1.3;
+		color: color("black");
+	}
+
+	&__location {
+		align-self: start;
+		color: color("medium-grey");
+	}
+
+	&__nav {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		display: flex;
+		gap: space(20);
+	}
+
+	&__arrow {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 56px;
+		height: 56px;
+		padding: 0;
+		cursor: pointer;
+		border: 0;
+		border-radius: 50%;
+		color: color("black");
+		background: color("white");
+
+		&--next {
+			color: color("white");
+			background: color("black");
+		}
+
+		&:hover {
+			outline: 2px solid color("yellow");
+		}
+
+		&:focus-visible {
+			outline: 2px solid color("purple");
+			outline-offset: 2px;
+		}
+
+		&.swiper-button-disabled {
+			cursor: default;
+			opacity: 0.4;
+
+			&:hover {
+				outline: 0;
+			}
+		}
+	}
+}

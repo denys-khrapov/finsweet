@@ -1,0 +1,19 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "acf/why-we-started",
+	"title": "Why we started",
+	"description": "Photo with a white card: label, heading, text and a button.",
+	"category": "finsweet",
+	"icon": "format-image",
+	"keywords": [ "story", "image", "home" ],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "render.php"
+	},
+	"supports": {
+		"align": false,
+		"anchor": true
+	},
+	"style": "finsweet-block-why-we-started"
+}

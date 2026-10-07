@@ -34,6 +34,8 @@ add_filter( 'block_categories_all', 'finsweet_block_categories' );
  * Runs on acf/init, so nothing is registered while Secure Custom Fields is inactive.
  * A block's compiled CSS is registered as the style handle "finsweet-block-<name>"
  * (set as "style" in its block.json), so WordPress prints it only where the block is used.
+ * A block's view.js is built to view-<name>.js and registered as "finsweet-block-<name>-view"
+ * (set as "viewScript" in its block.json).
  */
 function finsweet_register_blocks() {
 	$block_files = glob( get_theme_file_path( 'blocks/*/block.json' ) );
@@ -54,6 +56,24 @@ function finsweet_register_blocks() {
 				get_theme_file_uri( "assets/build/blocks/style-{$name}.css" ),
 				array(),
 				(string) filemtime( $css_path )
+			);
+		}
+
+		$view_path  = get_theme_file_path( "assets/build/blocks/view-{$name}.js" );
+		$view_asset = get_theme_file_path( "assets/build/blocks/view-{$name}.asset.php" );
+
+		if ( file_exists( $view_path ) && file_exists( $view_asset ) ) {
+			$asset = require $view_asset;
+
+			wp_register_script(
+				"finsweet-block-{$name}-view",
+				get_theme_file_uri( "assets/build/blocks/view-{$name}.js" ),
+				$asset['dependencies'],
+				$asset['version'],
+				array(
+					'in_footer' => true,
+					'strategy'  => 'defer',
+				)
 			);
 		}
 
@@ -111,6 +131,20 @@ function finsweet_block_number( $name, $fallback ) {
  * @return int Post ID, 0 when nothing is chosen or Secure Custom Fields is inactive.
  */
 function finsweet_block_post_id( $name ) {
+	if ( ! function_exists( 'get_field' ) ) {
+		return 0;
+	}
+
+	return absint( get_field( $name, false, false ) );
+}
+
+/**
+ * Returns the attachment ID of an image field of the block being rendered.
+ *
+ * @param string $name Field name.
+ * @return int Attachment ID, 0 when no image is chosen or Secure Custom Fields is inactive.
+ */
+function finsweet_block_image_id( $name ) {
 	if ( ! function_exists( 'get_field' ) ) {
 		return 0;
 	}

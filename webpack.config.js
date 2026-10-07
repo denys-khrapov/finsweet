@@ -28,11 +28,34 @@ const blockEntries = fs.existsSync( blocksDir )
 			}, {} )
 	: {};
 
+/**
+ * Every theme/blocks/<name>/view.js becomes its own entry,
+ * built to theme/assets/build/blocks/view-<name>.js.
+ */
+const viewEntries = fs.existsSync( blocksDir )
+	? fs
+			.readdirSync( blocksDir, { withFileTypes: true } )
+			.filter(
+				( dir ) =>
+					dir.isDirectory() &&
+					fs.existsSync( path.join( blocksDir, dir.name, 'view.js' ) )
+			)
+			.reduce( ( entries, dir ) => {
+				entries[ `blocks/view-${ dir.name }` ] = path.join(
+					blocksDir,
+					dir.name,
+					'view.js'
+				);
+				return entries;
+			}, {} )
+	: {};
+
 module.exports = {
 	...defaultConfig,
 	entry: {
 		main: path.resolve( __dirname, 'src/js/main.js' ),
 		...blockEntries,
+		...viewEntries,
 	},
 	output: {
 		...defaultConfig.output,

@@ -15,6 +15,7 @@
 | #8 | Templates, part 2: category archive and author page, breadcrumbs, sidebar with categories and tags |
 | #9 | Docs for the category and author templates |
 | #10 | Home blocks, part 1: hero post, featured and latest posts, categories, authors |
+| #11 | Home blocks, part 2: about and mission, why we started, featured in, testimonials slider (Swiper), `testimonial` post type |
 
 ## Plan
 
@@ -28,8 +29,8 @@ Every step is a separate PR. ✅ done, ⏭ next.
 4. ✅ **Block infrastructure** — field-based blocks with `block.json`, auto-registration, per-block styles (#5)
 5. ✅ **Shared components** — post, category and author cards, section headings, stripe, pagination (#6)
 6. ✅ **Templates** — single post, blog, search, 404, Privacy Policy (#7); category and author pages (#8)
-7. ⏭ **Home page blocks** — hero, featured and latest posts, categories, authors (#10); about and mission, why we started, logos; testimonials slider
-8. **About page blocks** — hero, stats, mission and vision, image + text sections, authors grid
+7. ✅ **Home page blocks** — hero, featured and latest posts, categories, authors (#10); about and mission, why we started, logos, testimonials slider (#11)
+8. ⏭ **About page blocks** — hero, stats, mission and vision, image + text sections, authors grid
 9. **Contact form and newsletter** — form handler with validation and spam protection, stored submissions, SMTP
 10. **Privacy Policy** template
 11. **Final pass** — responsive layout, accessibility, performance, basic SEO

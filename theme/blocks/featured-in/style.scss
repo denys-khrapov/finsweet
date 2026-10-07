@@ -1,0 +1,46 @@
+@use "../../../src/scss/abstracts" as *;
+
+.featured-in {
+
+	&__inner {
+		display: grid;
+		gap: space(30);
+
+		@include up(lg) {
+			grid-template-columns: 200px minmax(0, 1fr);
+			align-items: center;
+		}
+	}
+
+	&__title {
+		margin: 0;
+		font-size: font-size("heading-3");
+		line-height: 1.333;
+		color: color("medium-grey");
+	}
+
+	&__logos {
+		display: flex;
+		flex-wrap: wrap;
+		gap: space(30);
+		align-items: center;
+		padding: 0;
+		margin: 0;
+		list-style: none;
+
+		li {
+			display: flex;
+			flex: 1 1 120px;
+			justify-content: center;
+			min-width: 0;
+		}
+	}
+
+	&__logo {
+		display: block;
+		width: auto;
+		max-width: 100%;
+		height: 40px;
+		object-fit: contain;
+	}
+}
