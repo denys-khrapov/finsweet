@@ -17,4 +17,16 @@
 		line-height: 24px;
 		color: color("medium-grey");
 	}
+
+	&__text {
+		max-width: 480px;
+		margin: 0 auto;
+		font-size: font-size("body-2");
+		line-height: 24px;
+		color: color("medium-grey");
+
+		p {
+			margin: 0;
+		}
+	}
 }

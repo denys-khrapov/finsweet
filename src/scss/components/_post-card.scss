@@ -8,6 +8,19 @@
 	list-style: none;
 }
 
+.post-list--compact {
+
+	.post-card--horizontal {
+		@include up(lg) {
+			grid-template-columns: minmax(0, 296px) minmax(0, 1fr);
+		}
+
+		.post-card__image {
+			aspect-ratio: 296 / 312;
+		}
+	}
+}
+
 .post-grid {
 	display: grid;
 	gap: space(40);

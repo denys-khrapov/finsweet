@@ -70,4 +70,23 @@
 		line-height: 28px;
 		color: color("medium-grey");
 	}
+
+	&--compact {
+		flex-direction: row;
+		gap: space(20);
+		align-items: center;
+		min-height: 0;
+		padding: space(20);
+
+		.category-card__icon {
+			flex-shrink: 0;
+			margin-bottom: 0;
+		}
+
+		.category-card__name {
+			font-size: font-size("heading-4");
+			line-height: 1.4;
+			letter-spacing: -1px;
+		}
+	}
 }
