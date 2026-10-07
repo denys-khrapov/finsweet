@@ -57,8 +57,8 @@ Implemented in `theme/theme.json`.
 | Home | `533:2153` | page built from blocks (`page.php`) | hero with a post, featured post + latest posts list, about/mission, category grid, "why we started", authors, "Featured in" logos, testimonials slider, Join our team |
 | Blog | `571:498` | `home.php` (posts page) | featured post, posts list, Prev/Next pagination, category grid, Join our team |
 | Blog Post | `533:2751` | `single.php` | author + date, title, category badge, cover image, content, "What to read next" (3 cards), Join our team |
-| Category | `533:2623` | `category.php` | hero with breadcrumbs, posts list, sidebar: categories + all tags |
-| Author | `533:3026` | `single-blog_author.php` (CPT) | photo, name, bio, social links, "My posts" |
+| Category | `533:2623` | `category.php` | hero with breadcrumbs, posts list, sidebar: categories + all tags (→ decisions.md) |
+| Author | `533:3026` | `single-blog_author.php` (CPT) | photo, name, bio, social links, "My posts" (→ decisions.md) |
 | About Us | `533:2806` | page built from blocks | hero, stats over image, mission/vision, two image+text sections, authors grid, Join our team |
 | Contact | `533:3083` | page built from blocks + contact form block | heading, working hours / contacts card, form: name, email, query select, message |
 | Privacy Policy | `533:3065` | `page-privacy.php` (→ decisions.md) | header with "last updated" date, text content |
