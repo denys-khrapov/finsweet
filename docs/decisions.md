@@ -69,7 +69,18 @@
 - **Author page** (`single-blog_author.php`): lavender hero with photo, "Hey there, I'm <name> and welcome to my Blog", bio from the editor and the yellow/purple stripe; "My Posts" list below. Social links are not in the mockup; they are shown under the bio when filled in.
 - **"My Posts":** posts whose `author` relationship contains the author (`finsweet_get_author_posts_query()`), `posts_per_page` per page, paginated at `/authors/<slug>/<n>/`. A `pre_handle_404` filter lets those URLs through (the author text has one page, so core would answer 404); empty pages still return 404. `finsweet_pagination()` takes optional `current` and `base` arguments for this.
 
+## Home blocks (part 1)
+
+- **Four blocks:** `hero-post`, `latest-posts` (featured post + list), `categories`, `authors`. Content comes from the site, not from per-item fields: nothing to maintain twice.
+- **Hero post:** the post chosen in the block, otherwise the newest post that is not the featured one (`finsweet_get_hero_post()`). The post title is the `h1` of the Home page.
+- **Featured and latest posts:** the featured post is the newest sticky post, or the newest post (same as the blog, no separate flag). The list shows the newest posts without it; "View all" links to the Blog page unless a link is set in the block.
+- **Categories and authors:** all categories except Uncategorized and the authors in the order they were added, limited by a number field (4 by default). They reuse the category and author card partials and the `.category-grid` / `.author-grid` layouts.
+- **Post row** (`template-parts/post-row.php`): meta and title for compact lists; highlighted on hover and focus (the mockup shows the second row highlighted).
+- **Section heading** takes a `center` argument for the centered headings of the grids.
+- **Block fields** are read with `finsweet_block_number()` and `finsweet_block_post_id()` next to the existing helpers. Blocks without their own CSS (categories, authors) have no `style` in `block.json`.
+
 ## Known follow-ups
 
 - Newsletter form in the footer is markup only; the handler comes with the forms step.
 - `.button` component is minimal (header and footer needs). Hover colour of the light header button (`light-grey`) is not in the mockup.
+- Author card photo is 96 px, the Home mockup suggests about 128 px; the card is shared with the About page, so it stays until that page is built.

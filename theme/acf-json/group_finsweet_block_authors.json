@@ -1,0 +1,70 @@
+{
+	"key": "group_finsweet_block_authors",
+	"title": "Block: Authors",
+	"fields": [
+		{
+			"key": "field_finsweet_authors_title",
+			"label": "Title",
+			"name": "title",
+			"aria-label": "",
+			"type": "text",
+			"instructions": "Shows the authors in the order they were added.",
+			"required": 0,
+			"conditional_logic": false,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "List of authors",
+			"maxlength": "",
+			"placeholder": "",
+			"prepend": "",
+			"append": ""
+		},
+		{
+			"key": "field_finsweet_authors_count",
+			"label": "Number of authors",
+			"name": "count",
+			"aria-label": "",
+			"type": "number",
+			"instructions": "",
+			"required": 0,
+			"conditional_logic": false,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": 4,
+			"min": 1,
+			"max": 12,
+			"placeholder": "",
+			"step": 1,
+			"prepend": "",
+			"append": ""
+		}
+	],
+	"location": [
+		[
+			{
+				"param": "block",
+				"operator": "==",
+				"value": "acf\/authors"
+			}
+		]
+	],
+	"menu_order": 0,
+	"position": "normal",
+	"style": "default",
+	"label_placement": "top",
+	"instruction_placement": "label",
+	"hide_on_screen": "",
+	"active": true,
+	"description": "",
+	"show_in_rest": 0,
+	"display_title": "",
+	"allow_ai_access": false,
+	"ai_description": "",
+	"modified": 1791395927
+}

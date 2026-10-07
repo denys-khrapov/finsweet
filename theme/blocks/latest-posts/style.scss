@@ -1,0 +1,67 @@
+@use "../../../src/scss/abstracts" as *;
+
+.latest-posts {
+
+	&__grid {
+		display: grid;
+		gap: space(50);
+
+		@include up(lg) {
+			grid-template-columns: minmax(0, 1fr) minmax(0, 516px);
+			align-items: start;
+		}
+	}
+
+	&__card {
+		display: grid;
+		gap: space(20);
+		justify-items: start;
+		padding: space(40);
+		border: 1px solid $color-border;
+	}
+
+	&__image {
+		display: block;
+		justify-self: stretch;
+		aspect-ratio: 19 / 10;
+		overflow: hidden;
+		background: color("light-grey");
+
+		img {
+			display: block;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	&__title {
+		margin: 0;
+		font-family: $font-heading;
+		font-size: font-size("heading-3");
+		font-weight: 700;
+		line-height: 1.429;
+		letter-spacing: -1px;
+
+		a {
+			color: inherit;
+			text-decoration: none;
+
+			&:hover {
+				color: color("purple");
+			}
+
+			&:focus-visible {
+				outline: 2px solid color("purple");
+				outline-offset: 2px;
+			}
+		}
+	}
+
+	&__excerpt {
+		margin: 0 0 space(20);
+		font-size: font-size("body-1");
+		line-height: 28px;
+		color: color("medium-grey");
+	}
+}

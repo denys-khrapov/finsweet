@@ -13,6 +13,7 @@ require_once get_theme_file_path( 'inc/post-types.php' );
 require_once get_theme_file_path( 'inc/content.php' );
 require_once get_theme_file_path( 'inc/blocks.php' );
 require_once get_theme_file_path( 'inc/components.php' );
+require_once get_theme_file_path( 'inc/home.php' );
 
 /**
  * Registers theme supports and menu locations.

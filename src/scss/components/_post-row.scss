@@ -1,0 +1,39 @@
+@use "../abstracts" as *;
+
+.post-rows {
+	display: grid;
+}
+
+.post-row {
+	display: grid;
+	gap: space(10);
+	padding: space(40);
+
+	&:hover,
+	&:focus-within {
+		background: color("light-yellow");
+	}
+
+	&__title {
+		margin: 0;
+		font-family: $font-heading;
+		font-size: font-size("heading-4");
+		font-weight: 700;
+		line-height: 1.333;
+		letter-spacing: -1px;
+
+		a {
+			color: inherit;
+			text-decoration: none;
+
+			&:hover {
+				color: color("purple");
+			}
+
+			&:focus-visible {
+				outline: 2px solid color("purple");
+				outline-offset: 2px;
+			}
+		}
+	}
+}

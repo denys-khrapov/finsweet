@@ -1,0 +1,18 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "acf/authors",
+	"title": "Authors",
+	"description": "Grid of author cards.",
+	"category": "finsweet",
+	"icon": "admin-users",
+	"keywords": [ "authors", "grid" ],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "render.php"
+	},
+	"supports": {
+		"align": false,
+		"anchor": true
+	}
+}

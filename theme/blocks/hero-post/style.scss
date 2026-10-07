@@ -1,0 +1,89 @@
+@use "../../../src/scss/abstracts" as *;
+
+.hero-post {
+	position: relative;
+	display: flex;
+	align-items: center;
+	min-height: clamp(480px, 50vw, 720px);
+	padding-block: space(60);
+	overflow: hidden;
+	color: color("white");
+	background: color("dark-400");
+
+	&::after {
+		position: absolute;
+		inset: 0;
+		content: "";
+		background: color-mix(in srgb, #{color("dark-400")} 60%, transparent);
+	}
+
+	&__image {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	.container {
+		position: relative;
+		z-index: 1;
+	}
+
+	&__body {
+		display: grid;
+		gap: space(20);
+		justify-items: start;
+		max-width: 800px;
+	}
+
+	&__label {
+		margin: 0;
+		font-size: font-size("body-1");
+		line-height: 20px;
+		text-transform: uppercase;
+		letter-spacing: 3px;
+
+		strong {
+			font-weight: 800;
+		}
+	}
+
+	&__title {
+		margin: 0;
+		color: color("white");
+		font-size: font-size("heading-1");
+		line-height: 1.333;
+		letter-spacing: -2px;
+
+		a {
+			color: inherit;
+			text-decoration: none;
+
+			&:hover {
+				color: color("yellow");
+			}
+
+			&:focus-visible {
+				outline: 2px solid color("yellow");
+				outline-offset: 2px;
+			}
+		}
+	}
+
+	.post-meta {
+		font-size: font-size("body-1");
+		color: color("white");
+
+		&__author {
+			color: color("yellow");
+		}
+	}
+
+	&__excerpt {
+		max-width: 640px;
+		margin: 0 0 space(20);
+		font-size: font-size("body-1");
+		line-height: 28px;
+	}
+}
