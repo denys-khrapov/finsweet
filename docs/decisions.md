@@ -35,7 +35,7 @@
 - **Post → author** is an SCF relationship field `author` (one `blog_author`, stored as ID), not `post_author`. Helper: `finsweet_get_post_author()`.
 - **Category icons** are an SCF image field `icon` on the category term (stored as attachment ID, SVG allowed). Helper: `finsweet_get_category_icon_id()`.
 - **"Featured" flag** for posts is not added yet; it comes with the Home blocks step if needed.
-- **Testimonials, "Featured in" logos and About stats** are blocks with fields.
+- **"Featured in" logos and About stats** are blocks with fields; **testimonials** are a post type (see Home blocks, part 2).
 - **Contact and newsletter forms** use our own handler with `wp_mail`, no form plugin.
 
 ## Blocks
@@ -78,6 +78,17 @@
 - **Post row** (`template-parts/post-row.php`): meta and title for compact lists; highlighted on hover and focus (the mockup shows the second row highlighted).
 - **Section heading** takes a `center` argument for the centered headings of the grids.
 - **Block fields** are read with `finsweet_block_number()` and `finsweet_block_post_id()` next to the existing helpers. Blocks without their own CSS (categories, authors) have no `style` in `block.json`.
+
+## Home blocks (part 2)
+
+- **Four blocks:** `about-mission`, `why-we-started`, `featured-in`, `testimonials`. Texts and links are block fields.
+- **About and mission:** lavender section with the fixed stripe on top (no field for it), two columns from 1024 px. The link is only on the "About" column.
+- **Why we started:** photo 949 px and a white card 706 px (min height 584 px) overlapping it, both inside the 1280 px container; stacked on mobile. Sizes are taken from the Figma frame.
+- **Featured in:** a title and five image fields (`logo_1` to `logo_5`), because the free Secure Custom Fields has no Repeater or Gallery. Empty logos are skipped.
+- **Testimonials** are a `testimonial` post type without public pages (`public => false`, `show_ui`): title is the name, featured image is the photo, SCF fields `quote` and `location`. The block shows the newest N (4 by default) in a Swiper slider (Navigation, A11y, Keyboard modules), arrows hidden when there is one testimonial. Without JS the first testimonial stays visible.
+- **Block scripts:** `theme/blocks/<name>/view.js` is a webpack entry built to `assets/build/blocks/view-<name>.js`, registered as the handle `finsweet-block-<name>-view` and set as `viewScript` in `block.json`, so it loads only where the block is used.
+- **Block image field helper:** `finsweet_block_image_id()` next to the other `finsweet_block_*` helpers.
+- **Category card icon:** the icon box has no background; the image fills the 48 px box.
 
 ## Known follow-ups
 
