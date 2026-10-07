@@ -93,3 +93,51 @@ function finsweet_get_author_links( $author ) {
 
 	return $links;
 }
+
+/**
+ * Returns the posts written by an author.
+ *
+ * The author is stored in the post relationship field as a serialized list of IDs.
+ *
+ * @param int|WP_Post $author Post of the "blog_author" type or its ID.
+ * @param int         $paged  Page number.
+ * @return WP_Query
+ */
+function finsweet_get_author_posts_query( $author, $paged = 1 ) {
+	$author = get_post( $author );
+
+	return new WP_Query(
+		array(
+			'post_type'           => 'post',
+			'post_status'         => 'publish',
+			'posts_per_page'      => absint( get_option( 'posts_per_page' ) ),
+			'paged'               => max( 1, absint( $paged ) ),
+			'ignore_sticky_posts' => true,
+			'meta_query'          => array( // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query -- the author is a post meta value.
+				array(
+					'key'     => 'author',
+					'value'   => '"' . ( $author ? $author->ID : 0 ) . '"',
+					'compare' => 'LIKE',
+				),
+			),
+		)
+	);
+}
+
+/**
+ * Keeps the page numbers of the "My posts" list on the author page.
+ *
+ * Without it WordPress answers `/authors/<name>/2/` with a 404, because the author text has one page.
+ *
+ * @param bool     $preempt  Whether to short-circuit the default 404 handling.
+ * @param WP_Query $wp_query Main query.
+ * @return bool
+ */
+function finsweet_allow_author_pages( $preempt, $wp_query ) {
+	if ( $wp_query->is_singular( 'blog_author' ) && $wp_query->get( 'page' ) > 1 && $wp_query->have_posts() ) {
+		return true;
+	}
+
+	return $preempt;
+}
+add_filter( 'pre_handle_404', 'finsweet_allow_author_pages', 10, 2 );

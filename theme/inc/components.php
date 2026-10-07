@@ -165,36 +165,61 @@ add_action( 'pre_get_posts', 'finsweet_exclude_featured_post' );
  * Prints the pagination of a posts query: Prev, page numbers, Next.
  *
  * @param WP_Query|null $query Query to paginate, defaults to the main query.
+ * @param array         $args  {
+ *     Optional. For lists inside a singular page, where the page number is in the `page` query var.
+ *
+ *     @type int    $current Current page number.
+ *     @type string $base    URL pattern with the `%#%` placeholder for the page number.
+ * }
  */
-function finsweet_pagination( $query = null ) {
+function finsweet_pagination( $query = null, $args = array() ) {
 	global $wp_query;
 
 	$query   = $query ? $query : $wp_query;
 	$total   = (int) $query->max_num_pages;
-	$current = max( 1, (int) get_query_var( 'paged' ) );
+	$current = isset( $args['current'] ) ? max( 1, (int) $args['current'] ) : max( 1, (int) get_query_var( 'paged' ) );
+	$base    = isset( $args['base'] ) ? (string) $args['base'] : '';
 
 	if ( $total < 2 ) {
 		return;
 	}
 
-	$pages = paginate_links(
-		array(
-			'total'     => $total,
-			'current'   => $current,
-			'type'      => 'array',
-			'prev_next' => false,
-			'end_size'  => 1,
-			'mid_size'  => 1,
-		)
+	$links = array(
+		'total'     => $total,
+		'current'   => $current,
+		'type'      => 'array',
+		'prev_next' => false,
+		'end_size'  => 1,
+		'mid_size'  => 1,
 	);
+
+	if ( '' !== $base ) {
+		$links['base']   = $base;
+		$links['format'] = '';
+	}
 
 	get_template_part(
 		'template-parts/pagination',
 		null,
 		array(
-			'pages'    => $pages,
-			'prev_url' => $current > 1 ? get_pagenum_link( $current - 1 ) : '',
-			'next_url' => $current < $total ? get_pagenum_link( $current + 1 ) : '',
+			'pages'    => paginate_links( $links ),
+			'prev_url' => $current > 1 ? finsweet_page_url( $current - 1, $base ) : '',
+			'next_url' => $current < $total ? finsweet_page_url( $current + 1, $base ) : '',
 		)
 	);
+}
+
+/**
+ * Returns the URL of a page of a list.
+ *
+ * @param int    $number Page number.
+ * @param string $base   URL pattern with the `%#%` placeholder, empty for the main query pages.
+ * @return string
+ */
+function finsweet_page_url( $number, $base = '' ) {
+	if ( '' === $base ) {
+		return get_pagenum_link( $number );
+	}
+
+	return 1 === $number ? str_replace( array( '%#%/', '?page=%#%' ), '', $base ) : str_replace( '%#%', (string) $number, $base );
 }
