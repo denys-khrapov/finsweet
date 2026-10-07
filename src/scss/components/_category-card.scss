@@ -28,10 +28,6 @@
 	&.is-active {
 		background: color("yellow");
 		border-color: color("yellow");
-
-		.category-card__icon {
-			background: color("white");
-		}
 	}
 
 	&:focus-visible {
@@ -46,12 +42,11 @@
 		width: 48px;
 		height: 48px;
 		margin-bottom: space(20);
-		background: color("lavender");
 
 		img {
 			display: block;
-			width: 24px;
-			height: 24px;
+			width: inherit;
+			height: inherit;
 			object-fit: contain;
 		}
 	}

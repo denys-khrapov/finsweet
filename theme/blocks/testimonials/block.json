@@ -1,0 +1,20 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "acf/testimonials",
+	"title": "Testimonials",
+	"description": "Heading with a slider of the newest testimonials.",
+	"category": "finsweet",
+	"icon": "format-quote",
+	"keywords": [ "testimonials", "reviews", "slider", "home" ],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "render.php"
+	},
+	"supports": {
+		"align": false,
+		"anchor": true
+	},
+	"style": "finsweet-block-testimonials",
+	"viewScript": "finsweet-block-testimonials-view"
+}

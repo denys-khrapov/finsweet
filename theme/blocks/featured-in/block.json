@@ -1,0 +1,19 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "acf/featured-in",
+	"title": "Featured in",
+	"description": "Row of grey logos with a heading.",
+	"category": "finsweet",
+	"icon": "images-alt2",
+	"keywords": [ "logos", "press", "home" ],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "render.php"
+	},
+	"supports": {
+		"align": false,
+		"anchor": true
+	},
+	"style": "finsweet-block-featured-in"
+}

@@ -104,3 +104,20 @@ function finsweet_get_blog_url() {
 
 	return $page_id ? (string) get_permalink( $page_id ) : '';
 }
+
+/**
+ * Returns the newest testimonials for the slider.
+ *
+ * @param int $count Number of testimonials.
+ * @return WP_Post[]
+ */
+function finsweet_get_testimonials( $count ) {
+	return get_posts(
+		array(
+			'post_type'      => 'testimonial',
+			'post_status'    => 'publish',
+			'posts_per_page' => $count,
+			'no_found_rows'  => true,
+		)
+	);
+}
