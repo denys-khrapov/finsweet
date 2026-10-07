@@ -1,0 +1,19 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "acf/hero-post",
+	"title": "Hero post",
+	"description": "Full-width hero with the image, category, title, author and excerpt of a post.",
+	"category": "finsweet",
+	"icon": "cover-image",
+	"keywords": [ "hero", "post", "home" ],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "render.php"
+	},
+	"supports": {
+		"align": false,
+		"anchor": true
+	},
+	"style": "finsweet-block-hero-post"
+}

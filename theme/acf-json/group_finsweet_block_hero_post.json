@@ -1,0 +1,56 @@
+{
+	"key": "group_finsweet_block_hero_post",
+	"title": "Block: Hero post",
+	"fields": [
+		{
+			"key": "field_finsweet_hero_post_post",
+			"label": "Post",
+			"name": "post",
+			"aria-label": "",
+			"type": "post_object",
+			"instructions": "Leave empty to show the newest post that is not the featured one.",
+			"required": 0,
+			"conditional_logic": false,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"post_type": [
+				"post"
+			],
+			"post_status": [
+				"publish"
+			],
+			"taxonomy": "",
+			"return_format": "id",
+			"multiple": 0,
+			"allow_null": 1,
+			"bidirectional": 0,
+			"ui": 1,
+			"bidirectional_target": []
+		}
+	],
+	"location": [
+		[
+			{
+				"param": "block",
+				"operator": "==",
+				"value": "acf\/hero-post"
+			}
+		]
+	],
+	"menu_order": 0,
+	"position": "normal",
+	"style": "default",
+	"label_placement": "top",
+	"instruction_placement": "label",
+	"hide_on_screen": "",
+	"active": true,
+	"description": "",
+	"show_in_rest": 0,
+	"display_title": "",
+	"allow_ai_access": false,
+	"ai_description": "",
+	"modified": 1791395927
+}

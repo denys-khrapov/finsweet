@@ -1,0 +1,106 @@
+{
+	"key": "group_finsweet_block_latest_posts",
+	"title": "Block: Latest posts",
+	"fields": [
+		{
+			"key": "field_finsweet_latest_posts_featured_title",
+			"label": "Featured post title",
+			"name": "featured_title",
+			"aria-label": "",
+			"type": "text",
+			"instructions": "The featured post is the newest sticky post, or the newest post when none is sticky.",
+			"required": 0,
+			"conditional_logic": false,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "Featured Post",
+			"maxlength": "",
+			"placeholder": "",
+			"prepend": "",
+			"append": ""
+		},
+		{
+			"key": "field_finsweet_latest_posts_list_title",
+			"label": "List title",
+			"name": "list_title",
+			"aria-label": "",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"conditional_logic": false,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "All Posts",
+			"maxlength": "",
+			"placeholder": "",
+			"prepend": "",
+			"append": ""
+		},
+		{
+			"key": "field_finsweet_latest_posts_count",
+			"label": "Posts in the list",
+			"name": "count",
+			"aria-label": "",
+			"type": "number",
+			"instructions": "",
+			"required": 0,
+			"conditional_logic": false,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": 4,
+			"min": 1,
+			"max": 12,
+			"placeholder": "",
+			"step": 1,
+			"prepend": "",
+			"append": ""
+		},
+		{
+			"key": "field_finsweet_latest_posts_link",
+			"label": "View all link",
+			"name": "link",
+			"aria-label": "",
+			"type": "link",
+			"instructions": "Leave empty to link to the Blog page.",
+			"required": 0,
+			"conditional_logic": false,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"return_format": "array"
+		}
+	],
+	"location": [
+		[
+			{
+				"param": "block",
+				"operator": "==",
+				"value": "acf\/latest-posts"
+			}
+		]
+	],
+	"menu_order": 0,
+	"position": "normal",
+	"style": "default",
+	"label_placement": "top",
+	"instruction_placement": "label",
+	"hide_on_screen": "",
+	"active": true,
+	"description": "",
+	"show_in_rest": 0,
+	"display_title": "",
+	"allow_ai_access": false,
+	"ai_description": "",
+	"modified": 1791395927
+}

@@ -1,0 +1,19 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "acf/latest-posts",
+	"title": "Featured and latest posts",
+	"description": "The featured post next to a list of the latest posts.",
+	"category": "finsweet",
+	"icon": "columns",
+	"keywords": [ "featured", "latest", "posts", "home" ],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "render.php"
+	},
+	"supports": {
+		"align": false,
+		"anchor": true
+	},
+	"style": "finsweet-block-latest-posts"
+}

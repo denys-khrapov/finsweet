@@ -13,6 +13,8 @@
 | #6 | Shared components: horizontal and vertical post cards, category card and badge, author card, section heading, stripe, pagination, minimal `page.php` |
 | #7 | Templates, part 1: single post, blog page, search, 404, Privacy Policy page template, Join our team partial with fields on the settings page |
 | #8 | Templates, part 2: category archive and author page, breadcrumbs, sidebar with categories and tags |
+| #9 | Docs for the category and author templates |
+| #10 | Home blocks, part 1: hero post, featured and latest posts, categories, authors |
 
 ## Plan
 
@@ -26,7 +28,7 @@ Every step is a separate PR. ✅ done, ⏭ next.
 4. ✅ **Block infrastructure** — field-based blocks with `block.json`, auto-registration, per-block styles (#5)
 5. ✅ **Shared components** — post, category and author cards, section headings, stripe, pagination (#6)
 6. ✅ **Templates** — single post, blog, search, 404, Privacy Policy (#7); category and author pages (#8)
-7. ⏭ **Home page blocks** — hero, featured posts, categories, authors, logos, testimonials slider, call to action
+7. ⏭ **Home page blocks** — hero, featured and latest posts, categories, authors (#10); about and mission, why we started, logos; testimonials slider
 8. **About page blocks** — hero, stats, mission and vision, image + text sections, authors grid
 9. **Contact form and newsletter** — form handler with validation and spam protection, stored submissions, SMTP
 10. **Privacy Policy** template

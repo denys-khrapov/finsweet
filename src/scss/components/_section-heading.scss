@@ -17,6 +17,11 @@
 		color: color("black");
 	}
 
+	&--center {
+		justify-content: center;
+		text-align: center;
+	}
+
 	&--divider {
 		padding-bottom: space(40);
 		border-bottom: 1px solid $color-border;

@@ -88,6 +88,37 @@ function finsweet_block_field( $name ) {
 }
 
 /**
+ * Returns a number field of the block being rendered.
+ *
+ * @param string $name    Field name.
+ * @param int    $fallback Value used when the field is empty or Secure Custom Fields is inactive.
+ * @return int
+ */
+function finsweet_block_number( $name, $fallback ) {
+	if ( ! function_exists( 'get_field' ) ) {
+		return $fallback;
+	}
+
+	$value = absint( get_field( $name ) );
+
+	return $value > 0 ? $value : $fallback;
+}
+
+/**
+ * Returns the ID of a post chosen in a post field of the block being rendered.
+ *
+ * @param string $name Field name.
+ * @return int Post ID, 0 when nothing is chosen or Secure Custom Fields is inactive.
+ */
+function finsweet_block_post_id( $name ) {
+	if ( ! function_exists( 'get_field' ) ) {
+		return 0;
+	}
+
+	return absint( get_field( $name, false, false ) );
+}
+
+/**
  * Returns a link field of the block being rendered.
  *
  * @param string $name Field name.
