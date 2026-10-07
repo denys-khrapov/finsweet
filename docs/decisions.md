@@ -65,6 +65,9 @@
 - **Join our team** is a partial (`template-parts/join-our-team.php`) used by `single.php` and `home.php`; texts and button come from the Finsweet settings page, and the block renders the same partial. The block CSS handle is enqueued by the partial, so templates get the block styles.
 - **Search form** is the theme's own `searchform.php` with the `.button` component. 404 and search have no mockup: simple pages in the site style.
 - **Article typography:** the column is 768 px, h1/h2/h3 get 48 px top margin, list items use the heading font (as in the mockup).
+- **Category page:** hero with the category description and breadcrumbs (`template-parts/breadcrumbs.php`, Blog > Category), list of horizontal cards with a narrower image (296 px, `.post-list--compact`), sidebar (`template-parts/sidebar.php`) with compact category cards (current one highlighted) and all tags as outlined pills. The sidebar is a fixed 296 px column from 1024 px up.
+- **Author page** (`single-blog_author.php`): lavender hero with photo, "Hey there, I'm <name> and welcome to my Blog", bio from the editor and the yellow/purple stripe; "My Posts" list below. Social links are not in the mockup; they are shown under the bio when filled in.
+- **"My Posts":** posts whose `author` relationship contains the author (`finsweet_get_author_posts_query()`), `posts_per_page` per page, paginated at `/authors/<slug>/<n>/`. A `pre_handle_404` filter lets those URLs through (the author text has one page, so core would answer 404); empty pages still return 404. `finsweet_pagination()` takes optional `current` and `base` arguments for this.
 
 ## Known follow-ups
 
